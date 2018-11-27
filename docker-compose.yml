@@ -1,6 +1,6 @@
     version: '2.1'
     services:
-      academy-ldap:
+      unrisk-ldap:
         image: osixia/openldap:1.1.8
         environment:
           COMPOSE_HTTP_TIMEOUT: 200
@@ -42,9 +42,9 @@
         image: osixia/phpldapadmin:latest
         container_name: phpldapadmin
         environment:
-          PHPLDAPADMIN_LDAP_HOSTS: "academy-ldap"
+          PHPLDAPADMIN_LDAP_HOSTS: "unrisk-ldap"
           PHPLDAPADMIN_HTTPS: "false"
         ports:
           - "8085:80"
         links:
-          - academy-ldap
+          - unrisk-ldap
